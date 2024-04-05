@@ -63,7 +63,7 @@ function App() {
         adapter_name: null
       };
 
-      const response = await fetch('http://localhost:5000/api', {
+      const response = await fetch('http://localhost:7001/api', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -72,8 +72,8 @@ function App() {
       });
 
       const responseData = await response.json();
-
-      setResult(responseData.output);
+      console.log(responseData)
+      setResult(responseData.outputs[0].text);
     } catch (error) {
       console.error(error);
     } finally {
